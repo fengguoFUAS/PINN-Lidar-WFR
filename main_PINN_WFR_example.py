@@ -77,12 +77,20 @@ tf.random.set_seed(36)          # random seed initialization
 # The full data set can be ontained from:
 # https://data.dtu.dk/articles/dataset/EllipSys3D_large_eddy_simulation_data_of_single_wind_turbine_wakes_in_neutral_atmospheric_conditions/10259936
 # Only the 60s data in the waked condition is analyzed in this example. Ambient TI=12.8%
-Turb = scipy.io.loadmat('DTU_LES_data_wake_60s.mat')
+Turb1 = scipy.io.loadmat('DTU_LES_data_wake_60s_part1.mat')
+Turb2 = scipy.io.loadmat('DTU_LES_data_wake_60s_part2.mat')
+
 
 # Generate mesh
-Turb["X_mesh"] , Turb["Y_mesh"] = np.meshgrid(Turb["x_LES"], Turb["y_LES"], indexing='ij')
-Turb["X_vec"]        = Turb["X_mesh"].flatten()
-Turb["Y_vec"]        = Turb["Y_mesh"].flatten()
+Turb = {};
+Turb["X_mesh"] , Turb["Y_mesh"] = np.meshgrid(Turb1["x_LES"], Turb1["y_LES"], indexing='ij')
+Turb["X_vec"] = Turb["X_mesh"].flatten()
+Turb["Y_vec"] = Turb["Y_mesh"].flatten()
+Turb["x_LES"] = Turb1["x_LES"]
+Turb["y_LES"] = Turb1["y_LES"]
+Turb["U_LES"] = np.concatenate((Turb1["U_LES1"], Turb2["U_LES2"]),axis=2)
+Turb["V_LES"] = np.concatenate((Turb1["V_LES1"], Turb2["V_LES2"]),axis=2)
+Turb["t"]     = np.concatenate((Turb1["t1"], Turb2["t2"]),axis=1)
 
 
 # Define a lidar
