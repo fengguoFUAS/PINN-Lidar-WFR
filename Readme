@@ -1,7 +1,16 @@
-Thank you for your interest in the paper and the code. I am currently quite occupied with other commitments.
+# A baseline example of wind field reconstruction using nacelle lidar measurement and physics-informed neural network
+# Feng Guo @ Shanghai Jiao Tong University  3 Feb. 2026
+# This method is presented in the Paper:
+# On Wind Directions Estimated by Nacelle Lidar UnderDifferent Reconstruction Methods, Wind Energy
+# https://onlinelibrary.wiley.com/doi/epdf/10.1002/we.70098
 
-I will organize the code and add comments where necessary to improve readability. I expect to publish the initial release within the next 10 days.
+# Note: This code is intended for demonstration purposes only.
+# It has been tested only for the non-yawed case and does not account for sequential lidar scanning. 
 
-Best regards,
-Feng Guo
+# Please install the dependenies in the requirements.txt first.
+
+# Hope this code is helpful for your investigation.
+# Please cite this paper if you find this code helpful for your research.
+
+Author: Feng Guo
 fengguo@sjtu.edu.cn
